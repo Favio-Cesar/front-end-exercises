@@ -1,5 +1,7 @@
 /* Datos */
 class Usuario {
+  desiredAge = 30;
+  bannedNationality = "España";
   constructor(nombre, apellido, salary, age, nationality) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -7,8 +9,14 @@ class Usuario {
     this.age = age;
     this.nationality = nationality;
   }
+  checkNationality(nationality) {
+    if (nationality == "España") {
+      return true;
+    }
+    return false;
+  }
   SacarSiEsExtranjero() {
-    if ((this.nationality == "España") | (this.age != "30")) {
+    if (this.checkNationality(this.nationality) && this.age != desiredAge) {
       return "No es apto para la ayuda del gobierno";
     }
 
@@ -22,10 +30,9 @@ class Usuario {
     ) {
       return new Error("Introduce un objeto con las propiedades necesarias");
     }
-    const annualSalary = this.salary * 12;
-    const fullName = `${this.name} ${this.last}`;
-
-    return `Me llamo ${fullName} y cobro ${annualSalary}€ al año`;
+    const monthPerYear = 12;
+    const annualSalary = this.salary * monthPerYear;
+    return `Me llamo ${this.name + this.last} y cobro ${annualSalary}€ al año`;
   }
   SacarNombreUsuario() {
     if ((this.nombre === undefined) | (this.apellido === undefined)) {
