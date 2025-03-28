@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import TheTitle from './components/TheTitle.vue'
+import ProductCard from './components/ProductCard.vue'
 import TheCounter from './components/TheCounter.vue'
+import TheTitle from './components/TheTitle.vue'
 </script>
 
 <template>
@@ -14,11 +15,12 @@ import TheCounter from './components/TheCounter.vue'
 
   <main class="main__color--dark">
     <p class="font__p">texto con fuente en internet</p>
-    <TheCounter></TheCounter>
+    <TheCounter />
+    <ProductCard />
   </main>
 </template>
 
-<style scoped>
+<style>
 @font-face {
   font-family: 'Pixelify Sans';
   src: url('@/assets/fonts/PixelifySans-Regular.ttf') format('truetype');
